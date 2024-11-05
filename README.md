@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Boris Hubavenski: [GitHub](https://github.com/bhubavenski) / [LinkedIn](https://www.linkedin.com/in/boris-hubavenski/)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Robert Toth-Ludanyi: [GitHub](https://github.com/Mikra011) / [LinkedIn](https://www.linkedin.com/in/toth-ludanyi-robert-376ab92a4/)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
