@@ -1,7 +1,15 @@
-import { LuUser2 } from 'react-icons/lu';
+import { LuUser2 } from 'react-icons/lu'
+import { fetchProfileImage } from '@/utils/actions'
 
-function UserIcon() {
-    return <LuUser2 className='w-8 h-8 bg-primary rounded-full text-white' />;
+async function UserIcon() {
+    const profileImge = await fetchProfileImage()
+    if (profileImge) {
+        return (
+            // eslint-disable-next-line
+            <img src={profileImge} className='w-6 h-6 rounded-full object-cover'/>  
+        ) 
+    }
+    return <LuUser2 className='w-6 h-6 bg-primary rounded-full text-white' />
 }
 
-export default UserIcon;
+export default UserIcon
