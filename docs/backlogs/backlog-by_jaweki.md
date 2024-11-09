@@ -39,8 +39,9 @@
 
 1. All actions from residents' UI to backend that involve a new or pending appointment should be informed to the resident via email.
 2. Before any form submition from residents UI, a recaptcha should be implemented to avoid bots from DDos the app.
-3. Request management needs to be realtime, so that the admins view can be updated as time progresses.
-4. admins page should switch on location service so as to aid in determining the optimum route.
+3. The backend logic responsible for handling new appointments, should check the appointment management DB, if there has been a record with that email. If yes, just update the record with sent form data and confirm to the resident via email; if no record in DB has the email, then the backend should first send a request to the resident for them to confirm the email (make sure its not dummy), inform them in the UI; only when they have verified the email, should the appointment be added to the DB as a record, so that the route management logic can schedule them a visit.
+4. Request management needs to be realtime, so that the admins view can be updated as time progresses.
+5. admins page should switch on location service so as to aid in determining the optimum route.
 
 # Entity Relation Tables
 
