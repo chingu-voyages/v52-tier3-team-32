@@ -2,13 +2,12 @@
 
 import React from "react";
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L, { LatLngExpression } from "leaflet";
 
 // Disable marker shadow by customizing the icon
 const customIcon = new L.Icon({
-  iconUrl: "/marker-icon.png",
-  // "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  iconUrl: "/marker-icon.png", // "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
   iconSize: [25, 41], // Default size
   iconAnchor: [12, 41], // Anchor point
   popupAnchor: [1, -34], // Popup anchor point
@@ -31,19 +30,11 @@ const InteractiveMap = () => {
     },
   ];
 
-  const handleMarkerClick = (markerId: number) => {
-    alert(`Marker ${markerId} clicked!`);
-  };
-
-  const handleMarkerDoubleClick = (markerId: number) => {
-    alert(`Marker ${markerId} double-clicked!`);
-  };
-
   return (
     <MapContainer
       center={[34.0522, -118.45] as LatLngExpression}
       zoom={8}
-      style={{ height: "100vh", width: "100%", zIndex: -999 }}
+      style={{ height: "100vh", width: "100%", zIndex: 0 }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -54,10 +45,6 @@ const InteractiveMap = () => {
           key={marker.id}
           icon={customIcon}
           position={marker.position as LatLngExpression}
-          //   eventHandlers={{
-          //     click: () => handleMarkerClick(marker.id),
-          //     dblclick: () => handleMarkerDoubleClick(marker.id),
-          //   }}
         >
           {/* Popup: Opens on click */}
           <Popup>

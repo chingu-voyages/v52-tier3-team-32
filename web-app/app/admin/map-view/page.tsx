@@ -1,8 +1,8 @@
 "use client";
 import MapRenderer from "./ui/MapRenderer";
 
-function ProfilePage() {
+function MapView() {
   return <MapRenderer />;
 }
 
-export default ProfilePage;
+export default MapView;

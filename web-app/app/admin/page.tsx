@@ -8,6 +8,7 @@ const AdminsDashboard = () => {
   useEffect(() => {
     router.push("/admin/map-view");
   }, []);
+  return <></>;
 };
 
 export default AdminsDashboard;
