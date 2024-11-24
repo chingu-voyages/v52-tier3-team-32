@@ -1,8 +1,13 @@
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
-function AdminPage() {
-  return (
-    <div>AdminPage</div>
-  )
-}
+const AdminsDashboard = () => {
+  const router = useRouter();
 
-export default AdminPage
+  useEffect(() => {
+    router.push("/admin/map-view");
+  }, []);
+};
+
+export default AdminsDashboard;
