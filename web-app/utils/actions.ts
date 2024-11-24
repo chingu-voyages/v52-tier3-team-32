@@ -3,7 +3,6 @@
 import db from "./db";
 import { profileSchema, validateWithZodSchema } from "./schemas";
 import { clerkClient, currentUser } from "@clerk/nextjs/server";
-import { revalidatePath } from "next/cache"; // I leave it here as a reminder for future use
 import { redirect } from "next/navigation";
 
 const showError = (error: unknown): { message: string } => {
