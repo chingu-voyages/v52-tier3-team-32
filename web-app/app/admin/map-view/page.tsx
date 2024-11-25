@@ -1,10 +1,12 @@
-"use client";
-import MapRenderer from "./ui/MapRenderer";
+import dynamic from "next/dynamic";
 
-export const dynamic = "force-dynamic"; // For Next.js App Router
+const Map = dynamic(() => import("./ui/MapRenderer"), {
+  loading: () => <p>Loading map...</p>,
+  ssr: false,
+});
 
-const MapView = () => {
-  return <MapRenderer />;
+const MapViewPage = () => {
+  return <Map />;
 };
 
-export default MapView;
+export default MapViewPage;
