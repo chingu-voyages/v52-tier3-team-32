@@ -1,9 +1,11 @@
+import Navbar from "@/components/navbar/Navbar";
 import { Link2Icon } from "lucide-react";
 import Link from "next/link";
 
 function HomePage() {
   return (
     <div>
+      <Navbar />
       <h1 className="text-3xl">HomePage</h1>
       <Link href={"/redux-graphql"}>
         <div className=" w-96 bg-green-400 p-3 flex flex-row gap-2">

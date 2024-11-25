@@ -7,7 +7,7 @@ const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
 const isReduxPage = createRouteMatcher(["/redux-graphql(.*)"]);
 
 export default clerkMiddleware((auth, req) => {
-  const isAdminUser = auth().userId === process.env.ADMIN_USER_ID; // here I used clerk Id but it could be changed to email
+  const isAdminUser = !auth().getToken; // implement db check before authorizing user
   if (isAdminRoute(req) && isAdminUser) {
     return NextResponse.redirect(new URL("/admin", req.url));
   } else if (isReduxPage(req) && isAdminUser) {

@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
-import Providers from "./providers";
-import { ClerkProvider } from "@clerk/nextjs";
+import GlobalProviders from "./global-ui/providers/GlobalAppProviders";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "./global-ui/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./global-ui/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -19,9 +17,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Solar Wise",
   description: "Be Wise, Choose Solar",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  metadataBase: new URL("https://solarwise.vercel.app"),
 };
 
 export default function RootLayout({
@@ -30,19 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <main className="container py-10">
-            <Providers>
-              <Navbar />
-              {children}
-            </Providers>
-          </main>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <GlobalProviders>
+          <main>{children}</main>
+        </GlobalProviders>
+      </body>
+    </html>
   );
 }
