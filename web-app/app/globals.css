@@ -81,6 +81,11 @@
   }
 }
 
+.hero-section-background {
+  background-image: url('../public/background.jpg');
+  background-size: cover; 
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -88,5 +93,6 @@
 
   body {
     @apply bg-background text-foreground;
+    @apply font-inter
   }
 }

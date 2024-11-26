@@ -1,0 +1,16 @@
+.modern-black-blue {
+  background: linear-gradient(to right, #202639, #3f4c77);
+
+}
+.gradient-circle {
+  position: relative;
+  width: 50px; /* Размер на кръга */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Заоблени ръбове -> кръг */
+  background: linear-gradient(90deg, #ff6b6b, #5f27cd); /* Градиентен бордер */
+  -webkit-mask: radial-gradient(circle, transparent 50%, white 51%);
+  mask: radial-gradient(circle, transparent 50%, white 51%);
+}

@@ -3,6 +3,7 @@
 const nextConfig = {
   /* config options here */
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "https",
