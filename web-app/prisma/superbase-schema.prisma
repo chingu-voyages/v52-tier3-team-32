@@ -1,0 +1,40 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./generated-clients/superbase-client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("SUPERBASE_DB_URL")
+}
+
+model Appointments {
+    email             String @id @map("EMAIL") // Primary key
+    name              String @map("NAME")
+    phoneNumber       String @map("PHONE_NUMBER")
+    preferredTimeslot String @map("PREFERRED_TIMESLOT")
+    dateTimestamp     Int    @map("DATE_TIMESTAMP")
+    address           String @map("ADDRESS")
+    status            String @map("STATUS")
+}
+
+model Addresses {
+    hseId       BigInt @id @map("HSE_ID")
+    pin         String @map("PIN")
+    pind        String @map("PIND")
+    hseNbr      BigInt @map("HSE_NBR")
+    hseFracNbr  String @map("HSE_FRAC_NBR")
+    hseDirCd    String @map("HSE_DIR_CD")
+    strNm       String @map("STR_NM")
+    strSfxCd    String @map("STR_SFX_CD")
+    strSfxDirCd String @map("STR_SFX_DIR_CD")
+    unitRange   String @map("UNIT_RANGE")
+    zipCd       BigInt @map("ZIP_CD")
+    lat         Float  @map("LAT")
+    lon         Float  @map("LON")
+    xCoordNbr   Float  @map("X_COORD_NBR")
+    yCoordNbr   Float  @map("Y_COORD_NBR")
+    asgnSttsInd String @map("ASGN_STTS_IND")
+    engDist     String @map("ENG_DIST")
+    cnclDist    String @map("CNCL_DIST")
+}
