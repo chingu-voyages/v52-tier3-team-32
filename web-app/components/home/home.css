@@ -1,0 +1,42 @@
+.gradient-text-green {
+  background: -webkit-linear-gradient(#6db935, #315318);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: -webkit-linear-gradient(#4083ff, #264e99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-yellow {
+  background: -webkit-linear-gradient(#fccb61, #967939);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.benefits-item-bg {
+  background: linear-gradient(to right, #434343, #000000);
+}
+
+.background-image-eco {
+    background-image: url('../../public/eco-friendly.png');
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: right 50px bottom -40px;
+}
+
+.background-image-cost-saving {
+    background-image: url('../../public/svgs/cost-saving.svg');
+    background-size: 260px;
+    background-repeat: no-repeat;
+    background-position: right bottom -50px;
+}
+
+.background-image-energy-independent {
+    background-image: url('../../public/svgs/energy-independent.svg');
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: right bottom -20px;
+}
