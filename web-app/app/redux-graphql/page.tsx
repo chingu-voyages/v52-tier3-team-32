@@ -84,6 +84,30 @@ const VisualizeMutation = () => {
   );
 };
 
+const FetchAppointments = () => {
+  const fetchAppointments = async () => {
+    try {
+      const query = `
+    query {
+      fetchAppointments {
+        name
+        email
+        phone_number
+        preferred_timeslot
+        date_timestamp
+        address
+      }
+    }
+  `;
+      const data = await gqlClient.request(query);
+    } catch (error) {
+      console.error("something went wrong~", error);
+    }
+  };
+
+  return <></>;
+};
+
 const HomePage = () => {
   const name = useAppSelector((state) => state.nameUpdater.name);
 

@@ -6,11 +6,12 @@ export interface ContextInterface {
   prisma: PrismaClient;
 }
 
-const suberbasePrismaClient = new PrismaClient();
+// Use a global variable for Prisma client instance
+const prisma = new PrismaClient();
 
 export const context: ContextFunction<
   [NextApiRequest, NextApiResponse | undefined],
   ContextInterface
 > = async () => ({
-  prisma: suberbasePrismaClient,
+  prisma,
 });
