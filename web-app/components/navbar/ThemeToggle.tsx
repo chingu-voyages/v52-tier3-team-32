@@ -7,7 +7,7 @@ import { ThemeSwitch } from '../ui/ThemeSwitch';
 
 export default function ThemeToggle() {
   const {theme, setTheme } = useTheme();
-  const [isLight, setIsLight] = useState(true);
+  const [isLight, setIsLight] = useState(false);
   console.log({theme})
   useEffect(() => {
     if (isLight) {
