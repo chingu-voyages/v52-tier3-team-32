@@ -36,5 +36,4 @@ coding!
 
 - Boris Hubavenski: [GitHub](https://github.com/bhubavenski) / [LinkedIn](https://www.linkedin.com/in/boris-hubavenski/)
 - Robert Toth-Ludanyi: [GitHub](https://github.com/Mikra011) / [LinkedIn](https://www.linkedin.com/in/toth-ludanyi-robert-376ab92a4/)
-- Dimitrios Tsolakidis: [GitHub](https://github.com/dimitriost1) / [LinkedIn](https://www.linkedin.com/in/dimitrios-t-0bb8aa257/)
 - Jack Weru Kioni: [GitHub](https://github.com/Jaweki) / [LinkedIn](https://www.linkedin.com/in/jaweki-dekut/)
