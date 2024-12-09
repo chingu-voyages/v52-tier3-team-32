@@ -1,0 +1,10 @@
+node_modules
+# Keep environment variables out of version control
+.env
+
+resources/
+
+# Ignore all virtual environment folders
+venv/
+env/
+.venv/
