@@ -84,6 +84,38 @@ const VisualizeMutation = () => {
   );
 };
 
+const FetchAppointments = () => {
+  const [appointments, setAppointments] = useState([]);
+  const fetchAppointments = async () => {
+    try {
+      const query = `
+        query {
+          fetchAppointments {
+            name
+          }
+        }
+      `;
+      const data = (await gqlClient.request(query)) as unknown as any;
+      setAppointments(data.fetchAppointments);
+    } catch (error) {
+      console.error("something went wrong~", error);
+    }
+  };
+
+  return (
+    <div className="flex flex-col gap-2">
+      <span>Fetch Appointments Query</span>
+      <span>message: {JSON.stringify(appointments) ?? "_"}</span>
+      <button
+        onClick={fetchAppointments}
+        className="p-3 rounded-md bg-green-500"
+      >
+        click to Fetch appointments
+      </button>
+    </div>
+  );
+};
+
 const HomePage = () => {
   const name = useAppSelector((state) => state.nameUpdater.name);
 
@@ -109,6 +141,7 @@ const HomePage = () => {
         <span className="text-xl font-semibold">Redux toolkit</span>
         <span>Name saved in the redux toolkit is: {name}</span>
       </div>
+      <FetchAppointments />
     </main>
   );
 };

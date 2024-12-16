@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-py"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model addresses {
+    HSE_ID         BigInt  @id
+    PIN            String?
+    PIND           String?
+    HSE_NBR        BigInt?
+    HSE_FRAC_NBR   String?
+    HSE_DIR_CD     String?
+    STR_NM         String?
+    STR_SFX_CD     String?
+    STR_SFX_DIR_CD String?
+    UNIT_RANGE     String?
+    ZIP_CD         BigInt?
+    LAT            Float?
+    LON            Float?
+    X_COORD_NBR    Float?
+    Y_COORD_NBR    Float?
+    ASGN_STTS_IND  String?
+    ENG_DIST       String?
+    CNCL_DIST      Int?
+}
+
+// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model appointments {
+    NAME               String?
+    EMAIL              String @id @unique
+    PHONE_NUMBER       String @unique
+    PREFERRED_TIMESLOT String
+    STATUS             String
+    DATE_TIMESTAMP     BigInt
+    LATITUDE           Float
+    LONGITUDE          Float
+    ADDRESS            String @unique
+}

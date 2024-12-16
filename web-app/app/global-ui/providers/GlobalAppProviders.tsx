@@ -10,7 +10,6 @@ function GlobalProviders({
   return (
     <ClerkProvider>
       <ReduxToolkitStoreProvider>
-        <Toaster />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -18,6 +17,7 @@ function GlobalProviders({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </ReduxToolkitStoreProvider>
     </ClerkProvider>
