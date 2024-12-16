@@ -13,3 +13,7 @@ export interface Appointment {
 export interface FetchAppointments {
   fetchAppointments: Appointment[] | null;
 }
+
+export interface FetchRouteInterface {
+  fetchOptimisedRoute: string;
+}

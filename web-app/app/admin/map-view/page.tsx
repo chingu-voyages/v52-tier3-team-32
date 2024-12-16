@@ -1,7 +1,8 @@
 import dynamic from "next/dynamic";
+import MapLoader from "./ui/MapLoader";
 
 const Map = dynamic(() => import("./ui/MapRenderer"), {
-  loading: () => <p>Loading map...</p>,
+  loading: () => <MapLoader />,
   ssr: false,
 });
 
