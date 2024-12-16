@@ -1,10 +1,9 @@
 import { PrismaClient } from "@/prisma/generated-clients/postgresql-client";
-import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export const GET = async (req: NextApiRequest) => {
+export const GET = async () => {
   try {
     const val = await prisma.appointments.findMany({
       take: 10,
