@@ -181,7 +181,7 @@ const InteractiveMap = () => {
       <MapContainer
         center={[34.03, -118.0] as LatLngExpression}
         zoom={9.5}
-        style={{ height: "100vh", width: "100%", zIndex: 0 }}
+        style={{ height: "100%", width: "100%", zIndex: 0 }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

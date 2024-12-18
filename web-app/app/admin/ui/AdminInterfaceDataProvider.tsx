@@ -10,7 +10,7 @@ import {
 import { useAdminInterfaceStates } from "@/lib/redux-toolkit/features/admin-interface/custom-hooks";
 import { useAppDispatch } from "@/lib/redux-toolkit/redux-hooks";
 import polyline from "@mapbox/polyline";
-import { createContext, ReactNode, useEffect } from "react";
+import { createContext, ReactNode, useEffect, useMemo } from "react";
 import { FetchAppointments, FetchRouteInterface } from "../map-view/lib/types";
 import { convertTimeslotToTimeWindow } from "../map-view/lib/utils";
 import { ToastAction } from "@/components/ui/toast";
@@ -53,40 +53,46 @@ const AdminInterfaceDataProvider = ({
     dispatch(updateIsAskedEmployeeLoc(true));
   };
 
-  useEffect(() => {
-    toast({
-      title: "Requesting Location",
-      description:
-        "Are you in LA, USA? If yes, You can get a perfect experience if you let me use your location to show how I handle route optimisation for various appointments.",
-      duration: isAskedEmployeeLoc ? toastDuration : 3600000,
-      action: (
-        <div className=" flex flex-col gap-[2px] items-center justify-start">
-          <Button
-            aria-atomic
-            aria-label="Click to allow access to your location"
-            onClick={aquireCurrentLocation}
-          >
-            Allow
-          </Button>
-          <ToastAction
-            altText="Click to decline access to your location"
-            onClick={() => {
-              toast({
-                title: "Requesting Location",
-                description:
-                  "Location Access declined. No worries, follow the blue pin, it simulates your Location. Enjoy...",
-                duration: 1000,
-              });
+  useMemo(() => {
+    function queryEmployeeLoc() {
+      toast({
+        title: "Requesting Location",
+        description:
+          "Are you in LA, USA? If yes, You can get a perfect experience if you let me use your location to show how I handle route optimisation for various appointments.",
+        duration: isAskedEmployeeLoc ? toastDuration : 3600000,
+        action: (
+          <div className=" flex flex-col gap-[2px] items-center justify-start">
+            <Button
+              aria-atomic
+              aria-label="Click to allow access to your location"
+              onClick={aquireCurrentLocation}
+            >
+              Allow
+            </Button>
+            <ToastAction
+              altText="Click to decline access to your location"
+              onClick={() => {
+                toast({
+                  title: "Requesting Location",
+                  description:
+                    "Location Access declined. No worries, follow the blue pin, it simulates your Location. Enjoy...",
+                  duration: 1000,
+                });
 
-              dispatch(updateIsAskedEmployeeLoc(true));
-            }}
-          >
-            Decline
-          </ToastAction>
-        </div>
-      ),
-    });
-  }, []);
+                dispatch(updateIsAskedEmployeeLoc(true));
+              }}
+            >
+              Decline
+            </ToastAction>
+          </div>
+        ),
+      });
+    }
+
+    if (!isAskedEmployeeLoc) {
+      queryEmployeeLoc();
+    }
+  }, [isAskedEmployeeLoc]);
 
   useEffect(() => {
     async function fetchAppointments() {
