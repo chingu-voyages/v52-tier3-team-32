@@ -31,11 +31,7 @@ const EmployeeLocIcon = new L.Icon({
 });
 
 const InteractiveMap = () => {
-  // const dispatch = useAppDispatch();
-
   const { employeeLoc, decodedRoute, appointments } = useAdminInterfaceStates();
-
-  // const aquireCurrentLocation = () => {
   //   function success(position: GeolocationPosition) {
   //     const latitude = position.coords.latitude;
   //     const longitude = position.coords.longitude;

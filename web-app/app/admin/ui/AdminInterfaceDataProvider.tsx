@@ -94,11 +94,13 @@ const AdminInterfaceDataProvider = ({
     }
   }, [isAskedEmployeeLoc]);
 
+  //   fetch appointments from the server
   useEffect(() => {
     async function fetchAppointments() {
       const query = `
           query {
             fetchAppointments {
+              id
               name
               email
               phone_number
@@ -127,14 +129,19 @@ const AdminInterfaceDataProvider = ({
     }
   }, [isAskedEmployeeLoc]);
 
+  //   seek an optimised route from the server and the order of appoinments based on importance
   useEffect(() => {
     async function fetchRoute() {
       const query = `
           query($job: Job!) {
-            fetchOptimisedRoute(input: $job)
+            fetchOptimisedRoute(input: $job) {
+                decodedRoute
+                priorityOrder
+            }
           }
         `;
       const destinations = appointments.map((item) => ({
+        id: item.id,
         location: [item.latitude, item.longitude],
         time_window: convertTimeslotToTimeWindow(
           item.preferred_timeslot,
@@ -150,12 +157,12 @@ const AdminInterfaceDataProvider = ({
       };
 
       try {
-        console.log("some destinations: ", destinations);
         const { fetchOptimisedRoute } =
           await gqlClient.request<FetchRouteInterface>(query, variables);
-        console.log("Optimised Routes: ", fetchOptimisedRoute);
         if (fetchOptimisedRoute) {
-          const decodedPolyline = polyline.decode(fetchOptimisedRoute); // Decode the polyline
+          const decodedPolyline = polyline.decode(
+            fetchOptimisedRoute.decodedRoute
+          ); // Decode the polyline
 
           dispatch(updateDecodeRoute(decodedPolyline)); // Store decoded polyline
         }
