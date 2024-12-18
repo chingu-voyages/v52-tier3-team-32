@@ -1,4 +1,5 @@
 export interface Appointment {
+  id: string;
   name: string;
   email: string;
   phone_number: string;
@@ -15,5 +16,8 @@ export interface FetchAppointments {
 }
 
 export interface FetchRouteInterface {
-  fetchOptimisedRoute: string;
+  fetchOptimisedRoute: {
+    decodedRoute: string;
+    prorityOrder: number[];
+  };
 }

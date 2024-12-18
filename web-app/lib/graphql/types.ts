@@ -5,12 +5,13 @@ export interface ContextInterface {
 }
 
 export type RouteJob = {
-  startLocation: Number[];
-  endLocation: Number[];
+  startLocation: [number, number];
+  endLocation: [number, number];
   destinations: Destination[];
 };
 
 export interface Destination {
-  time_window: Number[];
-  location: Number[];
+  id: string;
+  time_window: [number, number];
+  location: [number, number];
 }

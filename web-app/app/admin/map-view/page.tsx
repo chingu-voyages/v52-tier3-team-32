@@ -7,7 +7,11 @@ const Map = dynamic(() => import("./ui/MapRenderer"), {
 });
 
 const MapViewPage = () => {
-  return <Map />;
+  return (
+    <div className="w-full h-full">
+      <Map />
+    </div>
+  );
 };
 
 export default MapViewPage;

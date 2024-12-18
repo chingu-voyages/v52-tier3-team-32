@@ -4,22 +4,28 @@ const typeDefs = gql`
   # Define the Query type for fetching data
 
   type Appointments {
+    id: String!
     name: String
-    email: String
+    email: String!
     phone_number: String
-    preferred_timeslot: String
-    date_timestamp: String
-    address: String
-    latitude: Float
-    longitude: Float
-    status: String
+    preferred_timeslot: String!
+    date_timestamp: String!
+    address: String!
+    latitude: Float!
+    longitude: Float!
+    status: String!
+  }
+
+  type OptimumRoute {
+    decodedRoute: String!
+    priorityOrder: [String]
   }
 
   type Query {
     # Say hello
     hello: String!
     fetchAppointments: [Appointments]
-    fetchOptimisedRoute(input: Job!): String
+    fetchOptimisedRoute(input: Job!): OptimumRoute
   }
 
   input Job {
@@ -29,6 +35,7 @@ const typeDefs = gql`
   }
 
   input Destination {
+    id: ID!
     time_window: [Float]
     location: [Float]
   }
